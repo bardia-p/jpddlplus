@@ -121,10 +121,12 @@ public class ProblemTransfomer {
                     final IntArraySet propositional = new IntArraySet();
                     final Collection numEffect = new LinkedHashSet();
                     for (var t : v.getValue()) {
-                        if (t instanceof Terminal term) {
+                        if (t instanceof Terminal) {
+                            Terminal term = (Terminal) t;
                             propositional.add(term.getId());
                         }
-                        if (t instanceof NumEffect neff) {
+                        if (t instanceof NumEffect) {
+                            NumEffect neff = (NumEffect) t;
                             numEffect.add(neff);
                         }
                     }

@@ -1447,7 +1447,8 @@ public class PDDLProblem implements SearchProblem {
                 current = actionsSet[i];
                 i++;
 
-                if (current instanceof TransitionGround transitionGround) {
+                if (current instanceof TransitionGround) {
+                    TransitionGround transitionGround = (TransitionGround) current;
 
                     if (transitionGround.isApplicable(source)) {
                         newState = source.clone();

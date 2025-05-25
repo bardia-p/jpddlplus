@@ -565,7 +565,8 @@ public class H1 implements SearchHeuristic {
     
 
     private float estimateCost(final Condition c, boolean additive, float previous) {
-        if (c instanceof AndCond and) {
+        if (c instanceof AndCond) {
+            AndCond and = (AndCond) c;
             if (and.sons == null) {
                 return 0f;
             }
@@ -583,7 +584,8 @@ public class H1 implements SearchHeuristic {
             }
             return ret;
 
-        } else if (c instanceof OrCond and) {
+        } else if (c instanceof OrCond) {
+            OrCond and = (OrCond) c;
             if (and.sons == null) {
                 return 0f;
             }
@@ -598,7 +600,8 @@ public class H1 implements SearchHeuristic {
                 }
             }
             return ret;
-        } else if (c instanceof Terminal t) {
+        } else if (c instanceof Terminal) {
+            Terminal t = (Terminal) c;
             return getConditionCost()[t.getId()];
         } else {
             return 0f;
@@ -636,7 +639,8 @@ public class H1 implements SearchHeuristic {
                 setNumericContribution(t, comp.getId(), 0f);
                 return positiveness;
             }
-            if (comp.getLeft() instanceof ExtendedNormExpression extendedNormExpression) {
+            if (comp.getLeft() instanceof ExtendedNormExpression) {
+                ExtendedNormExpression extendedNormExpression = (ExtendedNormExpression) comp.getLeft();
                 final ExtendedNormExpression left = extendedNormExpression;
                 for (final ExtendedAddendum ad : left.summations) {
                     if (ad.bin != null) {

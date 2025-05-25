@@ -71,7 +71,8 @@ public class AndCond extends ComplexCondition implements PostCondition {
     @Override
     public boolean eval (State s) {
         for (var o : this.sons) {
-            if (o instanceof Condition c) {
+            if (o instanceof Condition) {
+                Condition c = (Condition) o;
                 if (!c.eval(s)) {
                     return false;
                 }
@@ -137,9 +138,11 @@ public class AndCond extends ComplexCondition implements PostCondition {
     public String pddlPrintWithExtraObject ( ) {
         String ret_val = "(and ";
         for (Object o : sons) {
-            if (o instanceof Condition c) {
+               if (o instanceof Condition) {
+                Condition c = (Condition) o;
                 ret_val = ret_val.concat(c.pddlPrintWithExtraObject());
-            } else if (o instanceof Comparison comp) {
+            } else if (o instanceof Comparison) {
+                Comparison comp = (Comparison) o;
                 ret_val = ret_val.concat(comp.pddlPrintWithExtraObject());
             } else if (o instanceof NumEffect) {
                 System.out.println("Error in pddlPrint:" + this);

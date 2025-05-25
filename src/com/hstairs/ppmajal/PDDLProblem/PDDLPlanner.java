@@ -97,7 +97,7 @@ public class PDDLPlanner {
 
         final LinkedList<ImmutablePair<BigDecimal,TransitionGround>> plan = new LinkedList<>();
         State lastState = input.s;
-        if (!(input instanceof SearchNode c)) {
+        if (!(input instanceof SearchNode)) {
             SimpleSearchNode temp = input;
             while (temp.transition != null) {
                 Double time = null;
@@ -106,6 +106,9 @@ public class PDDLPlanner {
             }
             return plan;
         }
+
+        SearchNode c = (SearchNode) input;
+
         if (p.getProcessesSet().isEmpty()) {
             while ((c.transition != null || c.waitingPoints > 0 )) {
                 BigDecimal time = null;

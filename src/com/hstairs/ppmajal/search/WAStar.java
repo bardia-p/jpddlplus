@@ -136,9 +136,15 @@ public class WAStar extends SearchEngine {
                         }
                         switch (this.queueSuccessor(frontier, successorState, currentNode, act,
                                 getPreviousCost(gValue, successorState), successorG, gValue, h, hw)) {
-                            case inserted -> nodesEvaluated++;
-                            case deadend -> deadEndsDetected++;
-                            case duplicated -> duplicatedDetected++;
+                            case inserted:
+                                nodesEvaluated++;
+                                break;
+                            case deadend:
+                                deadEndsDetected++;
+                                break;
+                            case duplicated:
+                                duplicatedDetected++;
+                                break;
                         }
                     }
                 }

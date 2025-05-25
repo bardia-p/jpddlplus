@@ -165,7 +165,46 @@ public class ENHSP {
         }
     }
 
-    public record AnytimeConfigurations (String search, String heuristic, Boolean ha, String wh) {}
+    public class AnytimeConfigurations {
+
+        private final String search;
+        private final String heuristic;
+        private final Boolean ha;
+        private final String wh;
+
+        public AnytimeConfigurations(String search, String heuristic, Boolean ha, String wh) {
+            this.search = search;
+            this.heuristic = heuristic;
+            this.ha = ha;
+            this.wh = wh;
+        }
+
+        public String getSearch() {
+            return search;
+        }
+
+        public String getHeuristic() {
+            return heuristic;
+        }
+
+        public Boolean getHa() {
+            return ha;
+        }
+
+        public String getWh() {
+            return wh;
+        }
+
+        @Override
+        public String toString() {
+            return "AnytimeConfigurations{" +
+                    "search='" + search + '\'' +
+                    ", heuristic='" + heuristic + '\'' +
+                    ", ha=" + ha +
+                    ", wh='" + wh + '\'' +
+                    '}';
+        }
+    }
     LinkedList<AnytimeConfigurations> conf = new LinkedList();
 
     public void planning() {

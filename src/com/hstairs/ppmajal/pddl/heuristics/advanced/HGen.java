@@ -177,7 +177,8 @@ public class HGen extends H1 {
             if (a != actionId){
                 for (int c: necessarySet){
                     final Terminal t = Terminal.getTerminal(c);
-                    if (t instanceof Comparison comp){
+                    if (t instanceof Comparison){
+                        Comparison comp = (Comparison) t;
                         if (this.numericContribution(a, comp) > 0) {
                             ret.add(a);
                         }

@@ -46,7 +46,8 @@ public class SearchNode extends SimpleSearchNode {
 
     public SearchNode (State s1, Object action, SearchNode father, float gValue, float fExt,float hValue, boolean jsonSaving) {
         super(s1, action, father, gValue);
-        if (action instanceof  final Integer act){
+        if (action instanceof Integer){
+            final Integer act = (Integer) action;
             this.waitingPoints = act;
             //System.out.println(this.list_of_actions.size());
         }else{

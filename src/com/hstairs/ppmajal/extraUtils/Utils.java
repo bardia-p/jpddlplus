@@ -255,9 +255,11 @@ public class Utils {
 
     public static IntArraySet getNecessarySet(Condition condition) {
         final IntArraySet ret = new IntArraySet();
-        if (condition  instanceof AndCond andCond){
+        if (condition instanceof AndCond) {
+            AndCond andCond = (AndCond) condition;
             for (var v: andCond.sons){
-                if (v instanceof Terminal terminal){
+                if (v instanceof Terminal){
+                    Terminal terminal = (Terminal) v;
                     ret.add(terminal.getId());
                 }
             }

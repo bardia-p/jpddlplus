@@ -67,6 +67,58 @@ public abstract class SearchEngine {
         ARBITRARY
     }
 
-    public record SearchStats(int nodesExpanded, int nodesEvaluated, int deadEnds, int duplicates, long searchTime, long heuristicTime) {
+    public class SearchStats {
+
+        private final int nodesExpanded;
+        private final int nodesEvaluated;
+        private final int deadEnds;
+        private final int duplicates;
+        private final long searchTime;
+        private final long heuristicTime;
+
+        public SearchStats(int nodesExpanded, int nodesEvaluated, int deadEnds, int duplicates, long searchTime, long heuristicTime) {
+            this.nodesExpanded = nodesExpanded;
+            this.nodesEvaluated = nodesEvaluated;
+            this.deadEnds = deadEnds;
+            this.duplicates = duplicates;
+            this.searchTime = searchTime;
+            this.heuristicTime = heuristicTime;
+        }
+
+        public int nodesExpanded() {
+            return nodesExpanded;
+        }
+
+        public int nodesEvaluated() {
+            return nodesEvaluated;
+        }
+
+        public int deadEnds() {
+            return deadEnds;
+        }
+
+        public int duplicates() {
+            return duplicates;
+        }
+
+        public long searchTime() {
+            return searchTime;
+        }
+
+        public long heuristicTime() {
+            return heuristicTime;
+        }
+
+        @Override
+        public String toString() {
+            return "SearchStats{" +
+                    "nodesExpanded=" + nodesExpanded +
+                    ", nodesEvaluated=" + nodesEvaluated +
+                    ", deadEnds=" + deadEnds +
+                    ", duplicates=" + duplicates +
+                    ", searchTime=" + searchTime +
+                    ", heuristicTime=" + heuristicTime +
+                    '}';
+        }
     }
 }
