@@ -608,6 +608,9 @@ public class ENHSP {
         boolean startProcess = false;
         int size = plan.size();
         int  j = 0;
+        if (fileName == null) {
+            fileName = "output.plan";
+        }
         for (ImmutablePair<BigDecimal, TransitionGround> ele : plan) {
             j++;
             if (!temporal) {
